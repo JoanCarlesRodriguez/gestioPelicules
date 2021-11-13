@@ -36,34 +36,26 @@ public class ServletLogin extends HttpServlet {
             e.printStackTrace();
         }
         out.println("<html><body>");
-        out.println("Password introducido" + request.getParameter("password1"));
+        out.println("Password introducido " + request.getParameter("password1"));
     }
 
-    private Boolean verifyAutentication(String usuari, String password) throws SQLException, ClassNotFoundException {
+    private Boolean verifyAutentication(String usuari1, String password) throws SQLException, ClassNotFoundException {
         boolean verify = false;
 
         String sDriver = "com.mysql.cj.jdbc.Driver";
         String user = "admin";
         String pass = "12345678";
         String url = "jdbc:mysql://10.100.64.93/prova";          //Classe
-        String url2 = "jdbc:mysql://192.168.1.11:3306/prova";    //Casa
+        String url2 = "jdbc:mysql://192.168.1.9/prova";    //Casa
         Connection bd;
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, user, pass);
         Statement sta;
         ResultSet read;
 
-        if (password.equals(pass) && usuari.equals(user)){
-            verify = true;
-        }else {
-            verify = false;
-        }
-        return verify;
-
-        /*
         try {
             sta = con.createStatement();
-            read = sta.executeQuery("SELECT * FROM Users WHERE user = '"+usuari+"'");
+            read = sta.executeQuery("SELECT * FROM Users WHERE usuari = '"+usuari1+"'");
             read.next();
             if (Objects.equals(read.getString("password"), password)) {
                 verify = true;
@@ -72,7 +64,7 @@ public class ServletLogin extends HttpServlet {
             e.printStackTrace();
         }
 
-        return verify;*/
+        return verify;
 
     }
 }
