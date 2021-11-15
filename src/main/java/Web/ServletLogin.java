@@ -35,8 +35,7 @@ public class ServletLogin extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        out.println("<html><body>");
-        out.println("Password introducido " + request.getParameter("password1"));
+
     }
 
     private Boolean verifyAutentication(String usuari1, String password) throws SQLException, ClassNotFoundException {
@@ -49,7 +48,7 @@ public class ServletLogin extends HttpServlet {
         String url2 = "jdbc:mysql://192.168.1.9/prova";    //Casa
         Connection bd;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(url, user, pass);
+        Connection con = DriverManager.getConnection(url2, user, pass);
         Statement sta;
         ResultSet read;
 
