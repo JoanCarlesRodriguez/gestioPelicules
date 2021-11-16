@@ -1,36 +1,46 @@
 <%@ page import="Dades.Conexio" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Dades.Pelicules" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <%
+        ArrayList<Pelicules> llista = (ArrayList<Pelicules>) request.getAttribute("llista");
+    %>
 </head>
 <body>
-<h1>pag Principal</h1>
+<h1>Pagina Principal</h1>
 
-<%
-    try {
-        Conexio
-        Class.forName("com.mysql.jdbc.Driver");
-        bd = DriverManager.getConnection(url2, user, password);
-        conexio = bd.createStatement();
 
-        sortida.println("<h1>Totes ses Pelicules</h1>");
-        sortida.println("<h3>Que vols fer??</h3><br>" +
-                "<a href='npelicules.html'>Cercar pelicules</a><br><hr>");
 
-        resultat = conexio.executeQuery("SELECT * FROM catalegpelicules;");
-        while (resultat.next()) {
-            sortida.print(resultat.getString("id") + " " + resultat.getString("titol") + " " + resultat.getString("any") + " " + resultat.getString("director") + " " + resultat.getString("genere"));
-            sortida.println("<br><hr>");
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>TITOL</th>
+        <th>ANY</th>
+        <th>DIRECTOR</th>
+        <th>GENERE</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <%for (Pelicules pelis: llista) { %>
+    <tr>
+        <td scope='row'><%=pelis.getId()%></td>
+        <td><%=pelis.getTitol()%></td>
+        <td><%=pelis.getAny()%></td>
+        <td><%=pelis.getDirector()%></td>
+        <td><%=pelis.getGenere()%></td>
+        <td><button><a href="servlet-editar">Editar</a></button></td>
+        <td><button><a href="servlet-eliminar?<%pelis.getId();%>">Eliminar</a></button></td>
+    </tr>
+    <%}%>
+</table>
+<br>
+<a href="Insert.jsp"><button>Insertar</button></a>
 
-        }
-
-        bd.close();
-        conexio.close();
-    } catch (SQLException | ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-%>
 </body>
 </html>

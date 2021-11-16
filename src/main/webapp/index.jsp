@@ -8,14 +8,14 @@
 <body>
     <h1>Gestio de Pelicules</h1>
 
-    <form action="ServletLogin" method="post">
+    <form action="Servlet-Login" method="post">
 
         <label for="username" class="form-label">Usuari: </label>
         <input type="text" class="form-control" id="username" name="username" aria-describedby="usuariHelp">
         <hr>
         <label for="password1" class="form-label">Password</label>
         <input type="password" class="form-control" id="password1" name="password1">
-
+<br>
         <button type="submit" class="btn btn-primary">Entrar</button>
     </form>
 </body>
