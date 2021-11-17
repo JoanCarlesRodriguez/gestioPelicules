@@ -1,5 +1,6 @@
 package Web;
 
+import Dades.Conexio;
 import Dades.Pelicules;
 
 import javax.servlet.*;
@@ -44,13 +45,8 @@ public class ServletLogin extends HttpServlet {
 
     }
     private ArrayList llista() throws SQLException, ClassNotFoundException {
-        String user = "admin";
-        String pass = "12345678";
-        String url = "jdbc:mysql://10.100.64.184/prova";          //Classe
-        String url2 = "jdbc:mysql://192.168.1.9/prova";    //Casa
-        Connection bd;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(url, user, pass);
+
+        Connection con = Conexio.conectar();
         Statement sta;
         ResultSet read;
 
@@ -77,14 +73,7 @@ public class ServletLogin extends HttpServlet {
     private Boolean verifyAutentication(String usuari1, String password) throws SQLException, ClassNotFoundException {
         boolean verify = false;
 
-        String sDriver = "com.mysql.cj.jdbc.Driver";
-        String user = "admin";
-        String pass = "12345678";
-        String url = "jdbc:mysql://10.100.64.184/prova";          //Classe
-        String url2 = "jdbc:mysql://192.168.1.9/prova";    //Casa
-        Connection bd;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(url, user, pass);
+        Connection con = Conexio.conectar();
         Statement sta;
         ResultSet read;
 
