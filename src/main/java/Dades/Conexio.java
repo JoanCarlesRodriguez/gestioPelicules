@@ -19,7 +19,7 @@ public class Conexio {
         String pass = "12345678";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        return DriverManager.getConnection(url2, user, pass);
+        return DriverManager.getConnection(url, user, pass);
     }
     public static void desconectar(Connection con, Statement sta) throws SQLException {
         sta.close();

@@ -29,10 +29,10 @@ public class ServletLogin extends HttpServlet {
 
         try {
             if(verifyAutentication(username, password)) {
-                ArrayList salut = llista();
-                request.setAttribute("llista",salut);
+                /*ArrayList salut = llista();
+                request.setAttribute("llista",salut);*/
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
                 dispatcher.forward(request, response);
             } else {
                 out.println("L'usuari i la contrassenya no son correctes");

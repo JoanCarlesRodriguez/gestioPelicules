@@ -40,7 +40,7 @@
     <%}%>
 </table>
 <br>
-<a href="Insert.jsp"><button>Insertar</button></a>
+<a href="insert.jsp"><button>Insertar</button></a>
 
 </body>
 </html>

@@ -20,7 +20,7 @@ public class ServletInsert extends HttpServlet {
         PrintWriter sortida = response.getWriter();
         try {
             insertar(request,response);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,7 +41,7 @@ public class ServletInsert extends HttpServlet {
         Statement sta;
         ResultSet read;
 
-        String titol = request.getParameter("titiol");
+        String titol = request.getParameter("titol");
         String any = request.getParameter("any");
         String director = request.getParameter("director");
         String genere = request.getParameter("genere");
