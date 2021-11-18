@@ -16,11 +16,8 @@
     <h3>Que vols fer?</h3>
     <br>
     <br>
-
-
     <a href="nPelicules.jsp"><button class="btn btn-primary">Veure la taula</button></a>
     <br>
-
     <a href="insert.jsp"><button class="btn btn-primary">Insertar una nova peli</button></a>
 </body>
 </html>
