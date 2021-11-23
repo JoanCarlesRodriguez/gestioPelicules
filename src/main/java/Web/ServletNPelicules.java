@@ -26,7 +26,7 @@ public class ServletNPelicules extends HttpServlet {
 
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+
             Connection con = Conexio.conectar();
             Statement sta;
             ResultSet read;
