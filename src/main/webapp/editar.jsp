@@ -21,17 +21,18 @@
     <c: items="${pelicula}" var="pelicula">
 
     <form action="servlet-editar" method="post">
+        <input type="hidden" value="${pelicula.id}">
         <label for="titol" class="form-label">Titol:</label>
-        <input type="text" class="form-control" id="titol" name="titol" value="${pelicula.id}">
+        <input type="text" class="form-control" id="titol" name="titol" value="${pelicula.titol}">
         <hr>
         <label for="any" class="form-label">Any:</label>
-        <input type="number" class="form-control" id="any" name="any">
+        <input type="number" class="form-control" id="any" name="any" value="${pelicula.any}">
         <hr>
         <label for="director" class="form-label">Director:</label>
-        <input type="text" class="form-control" id="director" name="director">
+        <input type="text" class="form-control" id="director" name="director" value="${pelicula.director}">
         <hr>
         <label for="genere" class="form-label">Genere:</label>
-        <input type="text" class="form-control" id="genere" name="genere">
+        <input type="text" class="form-control" id="genere" name="genere" value="${pelicula.genere}">
         <br>
         <button type="submit" class="btn btn-primary">Insertar</button>
     </form>

@@ -18,14 +18,22 @@ public class ServletInsert extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter sortida = response.getWriter();
-        try {
-            insertar(request,response);
+
+        //Mirar sa sessio
+        HttpSession sessio= (HttpSession) request.getSession();
+        String usuari= (String) sessio.getAttribute("usuari");
+        if(usuari != null) {
+            try {
+                insertar(request, response);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
+                dispatcher.forward(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
-            dispatcher.forward(request, response);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 

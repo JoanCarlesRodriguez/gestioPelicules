@@ -31,6 +31,8 @@ public class ServletLogin extends HttpServlet {
             if(verifyAutentication(username, password)) {
                 /*ArrayList salut = llista();
                 request.setAttribute("llista",salut);*/
+                HttpSession sessio= (HttpSession) request.getSession();
+                sessio.setAttribute("usuari",username);
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
                 dispatcher.forward(request, response);
