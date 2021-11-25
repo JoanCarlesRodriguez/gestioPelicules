@@ -71,7 +71,7 @@ public class ServletEditar extends HttpServlet {
         try {
             con = Conexio.conectar();
             sta = con.createStatement();
-            sta.executeUpdate("update catalegpelicules set titol='"+titol+"', any='"+any+"', director='"+director+"', genere='"+genere+"' where id='"+id+"';");
+            sta.executeUpdate("update catalegpelicules set titol='"+titol+"', any="+any+", director='"+director+"', genere='"+genere+"' where id="+id+";");
             RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
