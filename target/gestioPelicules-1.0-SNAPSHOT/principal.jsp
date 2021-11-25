@@ -2,6 +2,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Dades.Pelicules" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${empty sessionScope.usuari}">
+    <c:redirect url="error.jsp"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,5 +60,8 @@
 <br>
 <a href="insert.jsp"><button>Insertar</button></a>
 
+<form action="ServletLogout" method="get">
+    <input type="submit" class="btn btn-outline-info" value="Logout" />
+</form>
 </body>
 </html>

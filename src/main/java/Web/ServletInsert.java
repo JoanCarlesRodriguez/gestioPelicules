@@ -19,10 +19,8 @@ public class ServletInsert extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter sortida = response.getWriter();
 
-        //Mirar sa sessio
-        HttpSession sessio= (HttpSession) request.getSession();
-        String usuari= (String) sessio.getAttribute("usuari");
-        if(usuari != null) {
+
+
             try {
                 insertar(request, response);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
@@ -32,9 +30,7 @@ public class ServletInsert extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-        }else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
-        }
+
     }
 
     @Override

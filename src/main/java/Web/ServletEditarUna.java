@@ -12,8 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-@WebServlet(name = "ServletEliminarUna", value = "/Servlet-EliminarUna")
-public class ServletEliminarUna extends HttpServlet {
+@WebServlet(name = "ServletEliminarUna", value = "/Servlet-EditarUna")
+public class ServletEditarUna extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -32,8 +32,10 @@ public class ServletEliminarUna extends HttpServlet {
             con = Conexio.conectar();
             sta = con.createStatement();
             sta.executeUpdate("update catalegpelicules set titol='"+titol+"', any="+any+", director='"+director+"', genere='"+genere+"' where id="+id+";");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inici.jsp");
             dispatcher.forward(request, response);
+            //response.sendRedirect("principal.jsp");
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

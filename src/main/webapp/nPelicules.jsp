@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:if test="${empty sessionScope.usuari}">
+    <c:redirect url="error.jsp"/>
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +22,9 @@
     <label>Numero de pelicules: </label>
     <input type="number" name="numero">
     <input type="submit" value="Cercar">
+</form>
+<form action="ServletLogout" method="get">
+    <input type="submit" class="btn btn-outline-info" value="Logout" />
 </form>
 </body>
 </html>
